@@ -1,0 +1,42 @@
+<apex:page controller="FlatController">
+    <html>
+        <head>
+            <style>
+                body {
+                background-color:#9678b6; 
+                }
+                
+                .centered-content {
+                margin: 0 auto;
+                width: 50%; 
+                text-align: left; 
+                background-color: #ffffff; 
+                padding: 20px; 
+                border-radius: 10px; 
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+                }
+            </style>
+        </head>
+    </html>
+    <apex:form >
+        <div class="centered-content">
+    
+    <apex:pageBlock title="Add Flats">
+            <apex:pageBlockSection columns="1">
+                <apex:pageMessages />
+                
+                <apex:inputText label="Flat Name" value="{!ft.Name}"/>
+                <apex:inputField label="Building Name" value="{!ft.BuildingId__c}"/>
+                <apex:inputText label="Number Of Bedrooms" value="{!ft.Number_Of_Bedrooms__c}"/>
+                <apex:inputText label="Number Of Bathrooms" value="{!ft.Number_Of_Bathrooms__c}"/>
+                <apex:inputText label="Rent Amount" value="{!ft.Rent_Amount__c}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                    <apex:commandButton value="Add Flats" action="{!saveaction}"/>
+                    <apex:commandButton value="Clear Records" action="{!clear}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    
+        </div>    
+    </apex:form>
+</apex:page>

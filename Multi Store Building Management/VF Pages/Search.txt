@@ -1,0 +1,40 @@
+<apex:page controller="SearchController">
+    <html>
+        <head>
+            <style>
+                body {
+                background-color:#9678b6; 
+                }
+                
+                .centered-content {
+                margin: 0 auto;
+                width: 50%; 
+                text-align: left; 
+                background-color: #ffffff; 
+                padding: 20px; 
+                border-radius: 10px; 
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+                }
+            </style>
+        </head>
+    </html>
+    <apex:form >
+        <div class="centered-content">
+        <apex:inputText value="{!searchstring}" label="Input"/>
+        <apex:commandButton value="Search records" action="{!search}"/>
+        <apex:commandButton value="Clear records" action="{!clear}"/>
+        <apex:pageBlock title="Search Contract By Building">
+            <apex:pageblockTable value="{!bu}" var="a">
+                <apex:column value="{!a.Name}"/>
+                <apex:column value="{!a.Building_Type__c}"/>
+                <apex:column value="{!a.Construction_Year__c}"/>
+                <apex:column value="{!a.Number_Of_Floors__c}"/>
+                <apex:column value="{!a.Revenue__c}"/>
+                <apex:column value="{!a.Total_Units_Flats__c}"/>
+                <apex:column value="{!a.Total_Vacant_Flats__c}"/>
+                
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        </div>
+</apex:form>
+</apex:page>

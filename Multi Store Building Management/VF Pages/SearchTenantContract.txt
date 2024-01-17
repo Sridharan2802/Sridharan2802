@@ -1,0 +1,18 @@
+<apex:page controller="SearchTenantContractController">
+    <apex:form >
+        <apex:inputText value="{!searchstring}" label="Input"/>
+        <apex:commandButton value="Search records" action="{!search}"/>
+        <apex:commandButton value="Clear records" action="{!clear}"/>
+        <apex:pageBlock title="Search Contract By Tenant">
+            <apex:pageblockTable value="{!ten}" var="t">
+                <apex:column value="{!t.Firstname__c }"/>
+                <apex:column value="{!t.Lastname__c}"/>
+                <apex:column value="{!t.Address__c}"/>
+                <apex:column value="{!t.Phone_Number__c}"/>
+                <apex:column value="{!t.Tenant_Work_Informtion__c}"/>
+              
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+</apex:form>
+</apex:page>
+       

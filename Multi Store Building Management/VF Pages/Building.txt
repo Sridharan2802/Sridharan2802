@@ -1,0 +1,54 @@
+<apex:page controller="BuildingController">
+    <html>
+        <head>
+            <style>
+                body {
+                background-color:#9678b6; 
+                }
+                
+                .centered-content {
+                margin: 0 auto;
+                width: 50%; 
+                text-align: left; 
+                background-color: #ffffff; 
+                padding: 20px; 
+                border-radius: 10px; 
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+                }
+            </style>
+        </head>
+    </html>
+    <apex:form >
+        <div class="centered-content">
+        <apex:pageBlock title="Add Building">
+            
+            <apex:pageBlockSection columns="1">
+                <apex:pageMessages />
+                
+                <apex:inputText label="Building Name" value="{!bul.Name}"/>
+                <apex:inputText label="Address" value="{!bul.Address__c}"/>
+                <apex:inputText label="Number Of Floors" value="{!bul.Number_Of_Floors__c}"/>
+                <apex:selectList label="Select Building Type" value="{!bul.Building_Type__c}">
+                
+                <apex:selectOptions value="{!ItemsList}">
+                    </apex:selectOptions>
+                </apex:selectList>
+                <apex:inputField value="{!bul.Construction_Year__c }" label="Construction Year"/>
+                <apex:inputText label="Total Unit Flats" value="{!bul.Total_Units_Flats__c  }"/>
+                <apex:inputText label="Total Vacant Flats" value="{!bul.Total_Vacant_Flats__c }"/>
+                <apex:inputText label="Revenue" value="{!bul.Revenue__c }"/>
+                <apex:selectList label="Available Flats" value="{!bul.Flat_Status__c}">
+                
+                <apex:selectOptions value="{!FlatList}">
+                    </apex:selectOptions>
+                </apex:selectList>
+                
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                    <apex:commandButton value="Save" action="{!saveaction}"/>
+                    <apex:commandButton value="Clear Records" action="{!clear}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+               </div>
+    </apex:form>
+</apex:page>

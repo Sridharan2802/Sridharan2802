@@ -1,0 +1,49 @@
+<apex:page controller="ContractController">
+     <html>
+        <head>
+            <style>
+                body {
+                background-color:#9678b6; 
+                }
+                
+                .centered-content {
+                margin: 0 auto;
+                width: 50%; 
+                text-align: left; 
+                background-color: #ffffff; 
+                padding: 20px; 
+                border-radius: 10px; 
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+                }
+            </style>
+        </head>
+    </html>
+    <apex:form >
+    <div class="centered-content">
+    <apex:pageBlock title="Add Contracts">
+            <apex:pageBlockSection columns="1">
+                <apex:pageMessages />
+                
+                <apex:inputField label="Start Date" value="{!ct.Start_Date__c }"/>
+                <apex:inputField label="End Date" value="{!ct.End_Date__c }"/>
+                <apex:inputField label="Flat Name" value="{!ct.FlatId__c}"/>
+                <apex:inputField label="Tenant Name" value="{!ct.TenentId__c }"/>
+                <apex:inputField label="Building Name" value="{!ct.BuildingId__c}"/>
+                <apex:inputField label="Deposit Amount" value="{!ct.Deposit_Amount__c}"/>
+                <apex:selectList label="Status" value="{!ct.Status__c}">
+                <apex:selectOptions value="{!ItemsList}">
+                    </apex:selectOptions>
+                </apex:selectList>
+                
+                
+                
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                    <apex:commandButton value="Add Contracts" action="{!saveaction}"/>
+                    <apex:commandButton value="Clear Records" action="{!clear}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+        </div>
+    </apex:form>
+    
+</apex:page>
